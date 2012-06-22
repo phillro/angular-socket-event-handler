@@ -29,7 +29,6 @@ angular.module('articleServices', ['socketEventHandler']).
         }
     })
     
-Then use the service in your controller:
 
 function ViewerCtrl($scope, $routeParams, ArticleService) {
   $scope.articles = []
