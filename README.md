@@ -14,9 +14,8 @@ Example of usage
 ============================
 
 First create a service for your namespace:
-
-angular.module('articleServices', ['socketEventHandler']).
-    factory('ArticleService', function ($socketEventHandler) {
+<pre><code>
+angular.module('articleServices', ['socketEventHandler']).factory('ArticleService', function ($socketEventHandler) {
         var socketEventHandler = new $socketEventHandler({host:'http://localhost:3000/'})
 
         function ArticleService(eventHandler) {
@@ -28,8 +27,11 @@ angular.module('articleServices', ['socketEventHandler']).
             self._unbind = eventHandler._unbind
         }
     })
-    
+    </pre></code>
 
+Then use the service in your controller:
+    
+<pre><code>
 function ViewerCtrl($scope, $routeParams, ArticleService) {
   $scope.articles = []
   $scope.getArticles = ArticleService.getArticles
@@ -38,3 +40,4 @@ function ViewerCtrl($scope, $routeParams, ArticleService) {
     $scope.$digest()
   })
 }
+</pre></code>
